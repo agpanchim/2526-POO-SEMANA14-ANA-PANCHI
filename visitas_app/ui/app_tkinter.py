@@ -1,37 +1,48 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from modelos.visitante import Visitas
+from modelos.visitante import Visitante
+
 
 class AppVisits(tk.Tk):
-   def __init__(self, servicio):
-        super().__init__(self, self.servicios)
+    def __init__(self, servicio):
+        super().__init__()
+        self.configure(bg="#145A32")  # color de fondo
 
         # Inyección de dependencias
-        self.servicio = self.servicios
+        self.servicio = servicio
 
         self.title("Registro de Visitantes")
-        self.geometry("500x500")
-
-        self.crear_ineterfaz()
+        self.geometry("600x500")
+        self.crear_interfaz()
 
     def crear_interfaz(self):
+
+        tk.Label(self, text="Sistema de Registro de Visitantes",
+                 bg="#2C3E50", fg="#F1C40F",
+                 font=("Arial", 16, "bold")).grid(row=0, column=0, columnspan=3, pady=15)
+
         # ===== FORMULARIO =====
-        tk.Label(self, text="Cédula").grid(row=0, column=0)
-        self.entry_cedula = tk.Entry(self)
-        self.entry_cedula.grid(row=0, column=1)
+        tk.Label(self, text="Cédula", bg="#2C3E50", fg="white", font=("Arial", 11)).grid(row=1, column=0, pady=5)
+        tk.Label(self, text="Nombre", bg="#2C3E50", fg="white", font=("Arial", 11)).grid(row=2, column=0, pady=5)
+        tk.Label(self, text="Motivo", bg="#2C3E50", fg="white", font=("Arial", 11)).grid(row=3, column=0, pady=5)
 
-        tk.Label(self, text="Nombre").grid(row=1, column=0)
-        self.entry_nombre = tk.Entry(self)
-        self.entry_nombre.grid(row=1, column=1)
+        self.entry_cedula = tk.Entry(self, font=("Arial", 11))
+        self.entry_nombre = tk.Entry(self, font=("Arial", 11))
+        self.entry_motivo = tk.Entry(self, font=("Arial", 11))
 
-        tk.Label(self, text="Motivo").grid(row=2, column=0)
-        self.entry_motivo = tk.Entry(self)
-        self.entry_motivo.grid(row=2, column=1)
+        self.entry_cedula.grid(row=1, column=1)
+        self.entry_nombre.grid(row=2, column=1)
+        self.entry_motivo.grid(row=3, column=1)
 
         # ===== BOTONES =====
-        tk.Button(self, text="Registrar", command=self.registrar).grid(row=3, column=0)
-        tk.Button(self, text="Eliminar", command=self.eliminar).grid(row=3, column=1)
-        tk.Button(self, text="Limpiar", command=self.limpiar).grid(row=3, column=2)
+        tk.Button(self, text="Registrar", bg="#27AE60", fg="white", font=("Arial", 10, "bold"),
+                  command=self.registrar).grid(row=4, column=0, pady=10)
+
+        tk.Button(self, text="Eliminar", bg="#E74C3C", fg="white", font=("Arial", 10, "bold"),
+                  command=self.eliminar).grid(row=4, column=1)
+
+        tk.Button(self, text="Limpiar", bg="#3498DB", fg="white", font=("Arial", 10, "bold"),
+                  command=self.limpiar).grid(row=4, column=2)
 
         # ===== TABLA =====
         self.tree = ttk.Treeview(self, columns=("Cedula", "Nombre", "Motivo"), show="headings")
@@ -40,7 +51,7 @@ class AppVisits(tk.Tk):
         self.tree.heading("Nombre", text="Nombre")
         self.tree.heading("Motivo", text="Motivo")
 
-        self.tree.grid(row=4, column=0, columnspan=3)
+        self.tree.grid(row=5, column=0, columnspan=3)
 
     def registrar(self):
         cedula = self.entry_cedula.get()
