@@ -7,27 +7,17 @@ Sistema de Registro de Visitantes
 Este proyecto es una aplicación desarrollada en Python que permite gestionar el registro de visitantes mediante una interfaz gráfica.
 El sistema permite agregar, listar y eliminar visitantes de manera sencilla.
 
-##Funcionalidades
+##Funcionalidad
+
 ✔ Registrar visitantes (cédula, nombre, motivo)
+
 ✔ Listar todos los visitantes en una tabla
+
 ✔ Eliminar visitantes seleccionados
+
 ✔ Limpiar campos del formulario
+
 ✔ Actualizar informacion de visitante seleccionado
-
-## Estructura del proyecto
-
-visitas_app/
-│
-├── modelos/
-│ └── visitante.py
-│
-├── servicios/
-│ └── visita_servicio.py
-│
-├── ui/
-│ └── app_tkinter.py
-│
-└── main.py
 
 ## Validaciones
 - No se permiten campos vacíos.
