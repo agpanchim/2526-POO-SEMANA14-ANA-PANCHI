@@ -2,6 +2,7 @@
 Aplicación de escritorio con interfaz gráfica utilizando Tkinter en Python, aplicando arquitectura modular por capas (Modelos, Servicios, UI y Main).
 
 Sistema de Registro de Visitantes
+
 ##Descripción
 
 Este proyecto es una aplicación desarrollada en Python que permite gestionar el registro de visitantes mediante una interfaz gráfica.
@@ -9,15 +10,15 @@ El sistema permite agregar, listar y eliminar visitantes de manera sencilla.
 
 ##Funcionalidad
 
-✔ Registrar visitantes (cédula, nombre, motivo)
+- Registrar visitantes (cédula, nombre, motivo)
 
-✔ Listar todos los visitantes en una tabla
+- Listar todos los visitantes en una tabla
 
-✔ Eliminar visitantes seleccionados
+- Eliminar visitantes seleccionados
 
-✔ Limpiar campos del formulario
+- Limpiar campos del formulario
 
-✔ Actualizar informacion de visitante seleccionado
+- Actualizar informacion de visitante seleccionado
 
 ## Validaciones
 - No se permiten campos vacíos.
