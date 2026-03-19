@@ -12,6 +12,7 @@ El sistema permite agregar, listar y eliminar visitantes de manera sencilla.
 ✔ Listar todos los visitantes en una tabla
 ✔ Eliminar visitantes seleccionados
 ✔ Limpiar campos del formulario
+✔ Actualizar informacion de visitante seleccionado
 
 ## Estructura del proyecto
 
@@ -28,10 +29,18 @@ visitas_app/
 │
 └── main.py
 
+## Validaciones
+- No se permiten campos vacíos.
+- No se permiten cédulas duplicadas.
+- Se debe seleccionar un registro para eliminar o actualizar.
 
-##Ejecución del proyecto
+## Actualización de visitantes
+Para actualizar un visitante es obligatorio seleccionar un registro antes de actualizar.
 
-- Clonar o descargar el proyecto
-- Abrir en PyCharm o VS Code
-- Ejecutar el archivo main.py
+## Eliminación de visitantes
+La eliminación se realiza usando la selección de la tabla.
 
+## Selección de registros
+Al hacer clic en una fila de la tabla:
+- Los datos se cargan automáticamente en los campos.
+- Se habilita la edición del registro.
