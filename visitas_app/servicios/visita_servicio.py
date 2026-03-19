@@ -1,35 +1,33 @@
-class VisitaServicio:
-    """
-    Clase de servicio que maneja el CRUD de visitantes.
-    """
-
+class ServicioVisitante:
     def __init__(self):
-
         self.visitantes = []
 
     def crear(self, visitante):
-
-        # Validar que no exista la misma cédula
-        if any(v.cedula == visitante.cedula for v in self.visitantes):
-            raise ValueError("El visitante ya existe")
-
+        for v in self.visitantes:
+            if v.cedula == visitante.cedula:
+                raise ValueError("Ya existe registro")
         self.visitantes.append(visitante)
 
     def listar_todo(self):
-
         return self.visitantes
 
     def eliminar(self, cedula):
-
         self.visitantes = [
-            v for v in self.visitantes if v.cedula != cedula
+            v for v in self.visitantes
+            if str(v.cedula).strip().lstrip("0") != str(cedula).strip().lstrip("0")
         ]
 
-    def actualizar(self, cedula, nuevo_nombre, nuevo_motivo):
+    def actualizar(self, cedula_original, nombre, motivo):
+        print("Buscando:", cedula_original)
 
         for v in self.visitantes:
-            if v.cedula == cedula:
-                v.nombre = nuevo_nombre
-                v.motivo = nuevo_motivo
+            print("Comparando con:", v.cedula)
+
+            if str(v.cedula).strip().lstrip("0") == str(cedula_original).strip().lstrip("0"):
+                v.nombre = nombre
+                v.motivo = motivo
+                print("ACTUALIZADO")
                 return True
+
+        print("NO ENCONTRADO")
         return False

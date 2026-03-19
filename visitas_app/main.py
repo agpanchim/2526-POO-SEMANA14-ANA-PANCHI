@@ -1,7 +1,7 @@
-from servicios.visita_servicio import VisitaServicio
+from servicios.visita_servicio import ServicioVisitante
 from ui.app_tkinter import AppVisits
 
 if __name__ == "__main__":
-    servicio = VisitaServicio()
+    servicio = ServicioVisitante()
     app = AppVisits(servicio)
     app.mainloop()
